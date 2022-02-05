@@ -30,7 +30,13 @@ function writePassword() {
       }
       //requirement for password to have upper case charachter
   var upperConfirm = window.prompt( "Please enter a password that contains an Upper case Character");
-      for (var i = 0; i < upper.length; i++)
+      for (var i = 0; i < upper.length; i++){
+        if(upperConfirm === [i]){
+          confirm('hit ok if you want your password to have these upper case characters');
+        }else{
+          prompt('Are you sure you dont want uppercase letter');
+        }
+      }
 
 
 
@@ -41,17 +47,5 @@ function writePassword() {
   passwordText.value = password; 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
