@@ -24,19 +24,33 @@ function writePassword() {
   var passwordLength = window.prompt( "Please enter a password length between 8 and 128 characters.");
       if(passwordLength >= 8 || passwordLength <= 128){
         console.log(passwordLength);
-        window.confirm("hit 'Okay' to confirm if you want your password to be this length.");
+        window.confirm("hit 'Ok' to confirm if you want your password to be this length.");
       }else{
         alert("Please enter a password length between 8 and 128 characters.")
       }
-      //requirement for password to have upper case charachter
-  var upperConfirm = window.prompt( "Please enter a password that contains an Upper case Character");
-      for (var i = 0; i < upper.length; i++){
-        if(upperConfirm === [i]){
-          confirm('hit ok if you want your password to have these upper case characters');
-        }else{
-          prompt('Are you sure you dont want uppercase letter');
-        }
-      }
+      //ask if user wants Uppercase in password
+  var upperConfirm = window.prompt( "would you like your password to create a Upper case Characters");
+      window.confirm("hit 'Ok' to confirm if you want your password to have upper case characters");
+  if(upperConfirm){ 
+    return true;
+  }
+  var lowerConfirm = window.prompt( "would you like your password to create a lower case Characters");
+      window.confirm("hit 'Ok' to confirm if you want your password to have lower case letters");
+  if(lowerConfirm){ 
+    return true;
+}
+var specialConfrim = window.prompt( "would you like your password to create special Characters");
+      window.confirm("hit 'Ok' to confirm if you want your password to have special charaters");
+  if(specialConfirm){ 
+    return true;
+  }
+var numberConfirm = window.prompt( "would you like your password to have numbers");
+    window.confirm("hit 'Ok' to confirm if you want your password to have numbers.");
+if(numberConfirm){ 
+  return true;
+} while(upperConfirm === false && lowerConfirm === false && specialConfrim === false && numberConfirm){
+  window.alert(" please confirm if the following criterias.");
+}
 
 
 
