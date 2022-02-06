@@ -21,13 +21,14 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  generatePassword();
+  // generatePassword();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password; 
 }
 
 function generatePassword(){
+  debugger
   //prompt that asks for user to enter correct password length
   var passwordLength = window.prompt( "Please enter a password length between 8 and 128 characters.");
       if(passwordLength > 8 && passwordLength < 128){
@@ -66,7 +67,9 @@ if(numberConfirm){
 if(!upperConfirm && !lowerConfirm && !specialConfirm  && !numberConfirm){
   window.alert(" please confirm to the following criterias.");
   generatePassword();
-}else if(upperConfirm && lowerConfirm && specialConfirm && numberConfirm){
+}
+//all user's possibilities in else if statements
+else if(upperConfirm && lowerConfirm && specialConfirm && numberConfirm){
   choices = upper.concat(lower, special, number)
 }else if(upperConfirm && lowerConfirm && specialConfirm){
   choices = choices.concat(upper, lower, special)
@@ -98,15 +101,15 @@ if(!upperConfirm && !lowerConfirm && !specialConfirm  && !numberConfirm){
   choices = choices.concat(number)
 };
 
-//for loop of the password length
+//for() loop of the password length
 //each time it goes through forloop get one character out of choices (random index of)
 for(var i = 0; i < passwordLength; i++){
   character = choices[Math.floor(Math.random() * choices.length)] //Math.Random -ize this line to generate the randomness]
   passwordArray.push(character)
 }
-//join password array together into a final password string make password.push into a final password string
+//join password array together into a final password string (make password.push into a final password string)
 console.log(passwordArray);
-return console.log(passwordArray.join(''));
+return passwordArray.join('');
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
